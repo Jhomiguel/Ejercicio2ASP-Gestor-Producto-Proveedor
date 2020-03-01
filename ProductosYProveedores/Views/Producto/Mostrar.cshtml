@@ -1,0 +1,33 @@
+﻿@model List<Productos> 
+
+
+@{
+    ViewData["Title"] = "Mostrar";
+}
+
+<h1>Lista de Productos</h1>
+
+<p>
+    <a asp-action="Agregar">Agregar Producto</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach (Productos producto in Model) {
+        <tr>
+            <td>
+                @producto.ID
+                @producto.Nombre
+                @producto.Descripcion
+                @Html.ActionLink("Editar", "Edit", new { id= producto.ID }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id= producto.ID })
+            </td>
+        </tr>
+                }
+    </tbody>
+</table>
