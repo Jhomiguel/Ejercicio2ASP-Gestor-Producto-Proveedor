@@ -1,0 +1,48 @@
+﻿@model List<Proveedores>
+
+
+@{
+    ViewData["Title"] = "Mostrar";
+}
+
+<h1>Lista de Proveedores</h1>
+
+<p>
+    <a asp-action="Agregar">Agregar Proveedor</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Direccion</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (Proveedores proveedor in Model)
+        {
+        <tr>
+            <td>
+                @proveedor.ID
+            </td>
+            <td>
+                @proveedor.Nombre
+            </td>
+            <td>
+                @proveedor.Descripcion
+            </td>
+            <td>
+                @proveedor.Direccion                     
+            </td>
+            <th>
+                @Html.ActionLink("Editar", "Edit", new { id = proveedor.ID }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = proveedor.ID })
+            </th>
+        </tr>
+
+        }
+    </tbody>
+</table>

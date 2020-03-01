@@ -13,21 +13,28 @@
 <table class="table">
     <thead>
         <tr>
-            <th></th>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Fecha_Venc</th>
+            <th scope="col">Id_Proveedor</th>
         </tr>
     </thead>
     <tbody>
         
         @foreach (Productos producto in Model) {
         <tr>
-            <td>
-                @producto.ID
-                @producto.Nombre
-                @producto.Descripcion
-                @Html.ActionLink("Editar", "Edit", new { id= producto.ID }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id= producto.ID })
+            <td> @producto.ID  </td>
+            <td scope="row">@producto.Nombre</td>
+            <td scope="row">@producto.Descripcion</td>
+            <td scope="row">@producto.Fecha_Venc</td>
+            <td scope="row">@producto.Id_Proveedor</td>
+            <td scope="row">
+                @Html.ActionLink("Editar", "Edit", new { id = producto.ID }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = producto.ID })
             </td>
+
         </tr>
-                }
+         }
     </tbody>
 </table>

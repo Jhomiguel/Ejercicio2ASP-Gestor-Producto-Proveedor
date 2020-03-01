@@ -8,7 +8,7 @@ namespace ProductosYProveedores.Models
     public class GestorProveedores
     {
         private static GestorProveedores instance = new GestorProveedores();
-        private List<Proveedores> GProveedores = new List<Proveedores>();
+        private List<Proveedores> GProveedores = new List<Proveedores>() { new Proveedores() {ID=1,Nombre="Nestle",Descripcion="asdasd",Direccion="asdasd" } };
         public static GestorProveedores GetInstance => instance;
         private GestorProveedores(){ }
 
@@ -38,6 +38,12 @@ namespace ProductosYProveedores.Models
                 }
             }
             return null;
+        }
+        public List<Proveedores> EditarProveedor(int Id, Proveedores proveedor)
+        {
+            var id = GProveedores.FindIndex(c => c.ID == Id);
+            GProveedores[id] = proveedor;
+            return GProveedores;
         }
 
         public List<Proveedores> ObtenerProveedores()
