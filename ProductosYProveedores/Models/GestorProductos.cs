@@ -9,13 +9,7 @@ namespace ProductosYProveedores.Models
     {
         private static GestorProductos instance = new GestorProductos();
 
-        private List<Productos> GProductos = new List<Productos>() 
-        {
-            new Productos() {ID = 1, Nombre="Salami", Descripcion="Induveca", Fecha_Venc=DateTime.Parse("12,02,2000"), Id_Proveedor=1},
-            new Productos() {ID = 2, Nombre="Salami", Descripcion="Induveca", Fecha_Venc=DateTime.Parse("12,02,2000"), Id_Proveedor=2},
-            new Productos() {ID = 3, Nombre="Salami", Descripcion="Induveca", Fecha_Venc=DateTime.Parse("12,02,2000"), Id_Proveedor=3},
-            new Productos() {ID = 4, Nombre="Salami", Descripcion="Induveca", Fecha_Venc=DateTime.Parse("12,02,2000"), Id_Proveedor=4}
-        };
+        private List<Productos> GProductos = new List<Productos>();
         public static GestorProductos GetInstance => instance;
         private GestorProductos() { }
         
